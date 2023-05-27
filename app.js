@@ -32,7 +32,7 @@ app.use("/api/auth", Auth);
 app.use("/api/users", User);
 app.use("/api/products", Product);
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.send("hello World");
 });
 
