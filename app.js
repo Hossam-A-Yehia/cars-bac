@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
-const path = require("path");
 ///Routes
 const Booking = require("./routes/bookings");
 const Complaint = require("./routes/complaints");
@@ -12,7 +11,6 @@ const Auth = require("./routes/auth");
 const User = require("./routes/user");
 const Product = require("./routes/product");
 
-app.use(cors());
 const corsOptions = {
   origin: "*",
   credentials: true,
@@ -24,8 +22,8 @@ app.use(express.json());
 // Mongoose
 mongoose
   .connect(process.env.MONGO_URL)
-  .then(console.log("Connected to Mongo"))
-  .catch(console.error);
+  .then(() => console.log("Mongoose DB connect"))
+  .catch((err) => console.log(err));
 // Routes
 app.use("/api/booking", Booking);
 app.use("/api/complaint", Complaint);
