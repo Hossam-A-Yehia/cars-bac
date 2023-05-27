@@ -21,7 +21,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 dotenv.config();
 app.use(express.json());
-app.use("/images", express.static(path.join(__dirname, "/images")));
 // Mongoose
 mongoose
   .connect(process.env.MONGO_URL)
